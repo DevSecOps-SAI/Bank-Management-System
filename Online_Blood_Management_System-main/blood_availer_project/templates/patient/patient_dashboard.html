@@ -1,0 +1,45 @@
+{% extends 'patient/patientbase.html' %}
+{% block content %}
+
+<div class="container py-5">
+  <div class="row text-center">
+    <div class="col-md-3 mb-4">
+      <div class="card bg-light h-100 shadow-sm">
+        <div class="card-body">
+          <i class="fas fa-sync-alt text-primary fs-3 mb-2"></i>
+          <h6 class="mb-1">Requests Made</h6>
+          <p class="fw-bold">{{ requestmade }}</p>
+        </div>
+      </div>
+    </div>
+    <div class="col-md-3 mb-4">
+      <div class="card bg-light h-100 shadow-sm">
+        <div class="card-body">
+          <i class="fas fa-sync text-warning fs-3 mb-2"></i>
+          <h6 class="mb-1">Pending Requests</h6>
+          <p class="fw-bold">{{ requestpending }}</p>
+        </div>
+      </div>
+    </div>
+    <div class="col-md-3 mb-4">
+      <div class="card bg-light h-100 shadow-sm">
+        <div class="card-body">
+          <i class="fas fa-check-circle text-success fs-3 mb-2"></i>
+          <h6 class="mb-1">Approved Requests</h6>
+          <p class="fw-bold">{{ requestapproved }}</p>
+        </div>
+      </div>
+    </div>
+    <div class="col-md-3 mb-4">
+      <div class="card bg-light h-100 shadow-sm">
+        <div class="card-body">
+          <i class="fas fa-times-circle text-danger fs-3 mb-2"></i>
+          <h6 class="mb-1">Rejected Requests</h6>
+          <p class="fw-bold">{{ requestrejected }}</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+{% endblock content %}

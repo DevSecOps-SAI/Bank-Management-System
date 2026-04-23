@@ -1,0 +1,113 @@
+{% extends 'blood_availer/adminbase.html' %}
+{% block content %}
+
+<div class="container py-5">
+  <div class="row g-4">
+    <div class="col-md-3 col-sm-6">
+      <div class="card unit-card text-center bg-danger text-white">
+        <div class="card-body">
+          <h4>A+ <i class="fas fa-tint"></i></h4>
+          <p class="unit-value">{{ A1.unit }} Units</p>
+        </div>
+      </div>
+    </div>
+    <div class="col-md-3 col-sm-6">
+      <div class="card unit-card text-center bg-warning text-dark">
+        <div class="card-body">
+          <h4>B+ <i class="fas fa-tint"></i></h4>
+          <p class="unit-value">{{ B1.unit }} Units</p>
+        </div>
+      </div>
+    </div>
+    <div class="col-md-3 col-sm-6">
+      <div class="card unit-card text-center bg-primary text-white">
+        <div class="card-body">
+          <h4>O+ <i class="fas fa-tint"></i></h4>
+          <p class="unit-value">{{ O1.unit }} Units</p>
+        </div>
+      </div>
+    </div>
+    <div class="col-md-3 col-sm-6">
+      <div class="card unit-card text-center bg-success text-white">
+        <div class="card-body">
+          <h4>AB+ <i class="fas fa-tint"></i></h4>
+          <p class="unit-value">{{ AB1.unit }} Units</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="row g-4 mt-4">
+    <div class="col-md-3 col-sm-6">
+      <div class="card unit-card text-center bg-danger-subtle">
+        <div class="card-body">
+          <h4>A- <i class="fas fa-tint"></i></h4>
+          <p class="unit-value">{{ A2.unit }} Units</p>
+        </div>
+      </div>
+    </div>
+    <div class="col-md-3 col-sm-6">
+      <div class="card unit-card text-center bg-warning-subtle">
+        <div class="card-body">
+          <h4>B- <i class="fas fa-tint"></i></h4>
+          <p class="unit-value">{{ B2.unit }} Units</p>
+        </div>
+      </div>
+    </div>
+    <div class="col-md-3 col-sm-6">
+      <div class="card unit-card text-center bg-primary-subtle">
+        <div class="card-body">
+          <h4>O- <i class="fas fa-tint"></i></h4>
+          <p class="unit-value">{{ O2.unit }} Units</p>
+        </div>
+      </div>
+    </div>
+    <div class="col-md-3 col-sm-6">
+      <div class="card unit-card text-center bg-success-subtle">
+        <div class="card-body">
+          <h4>AB- <i class="fas fa-tint"></i></h4>
+          <p class="unit-value">{{ AB2.unit }} Units</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <hr class="my-5">
+
+  <div class="row g-4">
+    <div class="col-md-3 col-sm-6">
+      <div class="card unit-card text-center bg-info text-white">
+        <div class="card-body">
+          <h4><i class="fas fa-users"></i></h4>
+          <p>Total Donors<br><strong>{{ totaldonors }}</strong></p>
+        </div>
+      </div>
+    </div>
+    <div class="col-md-3 col-sm-6">
+      <div class="card unit-card text-center bg-secondary text-white">
+        <div class="card-body">
+          <h4><i class="fas fa-spinner"></i></h4>
+          <p>Total Requests<br><strong>{{ totalrequest }}</strong></p>
+        </div>
+      </div>
+    </div>
+    <div class="col-md-3 col-sm-6">
+      <div class="card unit-card text-center bg-success text-white">
+        <div class="card-body">
+          <h4><i class="far fa-check-circle"></i></h4>
+          <p>Approved Requests<br><strong>{{ totalapprovedrequest }}</strong></p>
+        </div>
+      </div>
+    </div>
+    <div class="col-md-3 col-sm-6">
+      <div class="card unit-card text-center bg-danger text-white">
+        <div class="card-body">
+          <h4><i class="fas fa-tint"></i></h4>
+          <p>Total Blood Unit (ml)<br><strong>{{ totalbloodunit }}</strong></p>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+{% endblock content %}

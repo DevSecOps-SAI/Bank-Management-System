@@ -1,0 +1,92 @@
+{% extends 'blood_availer/adminbase.html' %}
+{% block content %}
+{% load widget_tweaks %}
+{% load static %}
+
+<div class="container py-5">
+  <div class="row justify-content-center">
+    <div class="col-lg-8">
+      <div class="card shadow-sm">
+        <div class="card-header bg-primary text-white">
+          <h4 class="mb-0">Update Patient</h4>
+        </div>
+        <div class="card-body">
+          <form method="POST" autocomplete="off" enctype="multipart/form-data">
+            {% csrf_token %}
+
+            <div class="mb-3">
+              <label for="id_first_name" class="form-label">First Name</label>
+              {% render_field userForm.first_name|attr:'required:true' class="form-control" id="id_first_name" %}
+            </div>
+
+            <div class="mb-3">
+              <label for="id_last_name" class="form-label">Last Name</label>
+              {% render_field userForm.last_name|attr:'required:true' class="form-control" id="id_last_name" %}
+            </div>
+
+            <div class="mb-3">
+              <label for="id_username" class="form-label">Username</label>
+              {% render_field userForm.username|attr:'required:true' class="form-control" id="id_username" %}
+            </div>
+
+            <div class="mb-3">
+              <label for="id_password" class="form-label">Password</label>
+              {% render_field userForm.password|attr:'required:true' class="form-control" id="id_password" %}
+            </div>
+
+            <div class="mb-3">
+              <label for="id_age" class="form-label">Age</label>
+              {% render_field patientForm.age|attr:'required:true' class="form-control" id="id_age" %}
+            </div>
+
+            <div class="mb-3">
+              <label for="id_bloodgroup" class="form-label">Blood Group</label>
+              <select name="bloodgroup" class="form-select" id="id_bloodgroup" required>
+                <option disabled selected value>Choose option</option>
+                <option>O+</option>
+                <option>O-</option>
+                <option>A+</option>
+                <option>A-</option>
+                <option>B+</option>
+                <option>B-</option>
+                <option>AB+</option>
+                <option>AB-</option>
+              </select>
+            </div>
+
+            <div class="mb-3">
+              <label for="id_disease" class="form-label">Disease (if any)</label>
+              {% render_field patientForm.disease|attr:'required:true' class="form-control" id="id_disease" %}
+            </div>
+
+            <div class="mb-3">
+              <label for="id_doctorname" class="form-label">Doctor</label>
+              {% render_field patientForm.doctorname|attr:'required:true' class="form-control" id="id_doctorname" %}
+            </div>
+
+            <div class="mb-3">
+              <label for="id_address" class="form-label">Address</label>
+              {% render_field patientForm.address|attr:'required:true' class="form-control" id="id_address" %}
+            </div>
+
+            <div class="mb-3">
+              <label for="id_mobile" class="form-label">Mobile</label>
+              {% render_field patientForm.mobile|attr:'required:true' class="form-control" id="id_mobile" %}
+            </div>
+
+            <div class="mb-4">
+              <label for="id_profile_pic" class="form-label">Profile Picture</label>
+              {% render_field patientForm.profile_pic|attr:'required:true' class="form-control" id="id_profile_pic" %}
+            </div>
+
+            <div class="text-end">
+              <button type="submit" class="btn btn-primary">Update</button>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+{% endblock content %}

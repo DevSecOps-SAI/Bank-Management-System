@@ -1,0 +1,56 @@
+{% extends 'donor/donorbase.html' %}
+{% block content %}
+<br><br>
+<div class="container py-4">
+  <div class="row g-4">
+    <div class="col-md-3">
+      <div class="card text-center border-0 shadow-sm">
+        <div class="card-body">
+          <div class="mb-2">
+            <i class="fas fa-sync-alt fa-2x text-primary"></i>
+          </div>
+          <h6 class="mb-1">Request Made</h6>
+          <h5>{{ requestmade }}</h5>
+        </div>
+      </div>
+    </div>
+
+    <div class="col-md-3">
+      <div class="card text-center border-0 shadow-sm">
+        <div class="card-body">
+          <div class="mb-2">
+            <i class="fas fa-sync fa-2x text-info"></i>
+          </div>
+          <h6 class="mb-1">Pending Request</h6>
+          <h5>{{ requestpending }}</h5>
+        </div>
+      </div>
+    </div>
+
+    <div class="col-md-3">
+      <div class="card text-center border-0 shadow-sm">
+        <div class="card-body">
+          <div class="mb-2">
+            <i class="fas fa-check-circle fa-2x text-success"></i>
+          </div>
+          <h6 class="mb-1">Approved Request</h6>
+          <h5>{{ requestapproved }}</h5>
+        </div>
+      </div>
+    </div>
+
+    <div class="col-md-3">
+      <div class="card text-center border-0 shadow-sm">
+        <div class="card-body">
+          <div class="mb-2">
+            <i class="fas fa-times-circle fa-2x text-danger"></i>
+          </div>
+          <h6 class="mb-1">Rejected Request</h6>
+          <h5>{{ requestrejected }}</h5>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+{% endblock content %}

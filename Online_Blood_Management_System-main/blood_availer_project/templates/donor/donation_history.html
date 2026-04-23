@@ -1,0 +1,44 @@
+{% extends 'donor/donorbase.html' %}
+{% block content %}
+{% load widget_tweaks %}
+{% load static %}
+
+<div class="container py-5">
+  <h4 class="text-center mb-4">My Donation History</h4>
+  <div class="table-responsive">
+    <table class="table table-bordered table-striped table-hover">
+      <thead class="table-info text-center">
+        <tr>
+          <th>Donor Age</th>
+          <th>Disease (if any)</th>
+          <th>Blood Group</th>
+          <th>Unit</th>
+          <th>Date</th>
+          <th>Status</th>
+        </tr>
+      </thead>
+      <tbody>
+        {% for t in donations %}
+        <tr class="text-center">
+          <td>{{ t.age }}</td>
+          <td>{{ t.disease }}</td>
+          <td>{{ t.bloodgroup }}</td>
+          <td>{{ t.unit }}</td>
+          <td>{{ t.date }}</td>
+          <td>
+            {% if t.status == 'Approved' %}
+              <span class="badge bg-warning text-dark">Approved</span>
+            {% elif t.status == 'Rejected' %}
+              <span class="badge bg-danger">Rejected</span>
+            {% else %}
+              <span class="badge bg-info text-dark">Pending</span>
+            {% endif %}
+          </td>
+        </tr>
+        {% endfor %}
+      </tbody>
+    </table>
+  </div>
+</div>
+
+{% endblock content %}

@@ -1,0 +1,46 @@
+{% extends 'patient/patientbase.html' %}
+{% block content %}
+{% load widget_tweaks %}
+{% load static %}
+
+<div class="container py-5">
+  <h4 class="text-center mb-4">My Blood Requests</h4>
+  <div class="table-responsive">
+    <table class="table table-bordered table-hover text-center align-middle">
+      <thead class="table-info">
+        <tr>
+          <th>Patient Name</th>
+          <th>Age</th>
+          <th>Reason</th>
+          <th>Blood Group</th>
+          <th>Unit</th>
+          <th>Date</th>
+          <th>Status</th>
+        </tr>
+      </thead>
+      <tbody>
+        {% for t in blood_request %}
+        <tr>
+          <td>{{ t.patient_name }}</td>
+          <td>{{ t.patient_age }}</td>
+          <td>{{ t.reason }}</td>
+          <td>{{ t.bloodgroup }}</td>
+          <td>{{ t.unit }}</td>
+          <td>{{ t.date }}</td>
+          <td>
+            {% if t.status == 'Approved' %}
+              <span class="badge bg-success">Approved</span>
+            {% elif t.status == 'Rejected' %}
+              <span class="badge bg-danger">Rejected</span>
+            {% else %}
+              <span class="badge bg-primary">Pending</span>
+            {% endif %}
+          </td>
+        </tr>
+        {% endfor %}
+      </tbody>
+    </table>
+  </div>
+</div>
+
+{% endblock content %}

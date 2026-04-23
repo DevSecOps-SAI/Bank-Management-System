@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Blood Availer Admin</title>
+
+  <!-- Bootstrap 5 -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+
+  <style>
+    body {
+      background-color: #f8f9fa;
+    }
+    .sidebar {
+      height: 100vh;
+      background-color: #343a40;
+      padding-top: 20px;
+    }
+    .sidebar a {
+      color: #adb5bd;
+      padding: 10px 15px;
+      display: block;
+      text-decoration: none;
+    }
+    .sidebar a:hover, .sidebar a.active {
+      background-color: #495057;
+      color: #fff;
+    }
+    .sidebar .nav-link i {
+      width: 20px;
+    }
+    .main {
+      margin-left: 200px;
+      padding: 20px;
+    }
+    .navbar-brand {
+      color: white !important;
+      font-family: 'Comic Sans MS';
+    }
+    .logout-form button {
+      background: none;
+      border: none;
+      color: white;
+      cursor: pointer;
+    }
+    .logout-form button:hover {
+      text-decoration: underline;
+    }
+  </style>
+</head>
+<body>
+  <!-- Top Navbar -->
+  <nav class="navbar navbar-expand-lg navbar-dark bg-primary fixed-top">
+    <div class="container-fluid">
+      <a class="navbar-brand" href="/">
+        <i class="fas fa-heartbeat"></i> Blood Availer
+      </a>
+      <div class="d-flex">
+        <form method="post" action="{% url 'logout' %}" class="logout-form d-flex align-items-center">
+          {% csrf_token %}
+          <button type="submit" class="nav-link"><i class="fas fa-sign-out-alt"></i> Logout</button>
+        </form>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Sidebar + Main Content Wrapper -->
+  <div class="d-flex">
+    <!-- Sidebar -->
+    <div class="sidebar position-fixed top-0 start-0 d-flex flex-column flex-shrink-0 p-3 text-white" style="width: 200px; margin-top: 56px;">
+      <ul class="nav nav-pills flex-column mb-auto">
+        <li><a href="/" class="nav-link"><i class="fas fa-home"></i> Home</a></li>
+        <li><a href="/admin-donor" class="nav-link"><i class="fas fa-user"></i> Donor</a></li>
+        <li><a href="/admin-patient" class="nav-link"><i class="fas fa-user-injured"></i> Patient</a></li>
+        <li><a href="/admin-donation" class="nav-link"><i class="fas fa-hand-holding-medical"></i> Donations</a></li>
+        <li><a href="/admin-request" class="nav-link"><i class="fas fa-sync-alt"></i> Blood Requests</a></li>
+        <li><a href="/admin-request-history" class="nav-link"><i class="fas fa-history"></i> Request History</a></li>
+        <li><a href="/admin-blood" class="nav-link"><i class="fas fa-hand-holding-water"></i> Blood Stock</a></li>
+      </ul>
+    </div>
+
+    <!-- Main Content Area -->
+    <div class="main flex-grow-1" style="margin-top: 56px;">
+      {% block content %}{% endblock content %}
+    </div>
+  </div>
+
+  <!-- Scripts -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

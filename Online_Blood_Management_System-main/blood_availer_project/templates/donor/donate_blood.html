@@ -1,0 +1,57 @@
+{% extends 'donor/donorbase.html' %}
+{% block content %}
+{% load widget_tweaks %}
+{% load static %}
+
+<div class="container py-5">
+  <div class="row justify-content-center">
+    <div class="col-lg-8">
+      <div class="card shadow-sm">
+        <div class="card-header bg-danger text-white">
+          <h4 class="mb-0 text-center">Donate Blood</h4>
+        </div>
+        <div class="card-body">
+          <form method="POST" autocomplete="off" enctype="multipart/form-data">
+            {% csrf_token %}
+
+            <div class="mb-3">
+              <label for="id_bloodgroup" class="form-label">Blood Group</label>
+              <select name="bloodgroup" class="form-select" id="id_bloodgroup" required>
+                <option disabled selected value>Choose option</option>
+                <option>O+</option>
+                <option>O-</option>
+                <option>A+</option>
+                <option>A-</option>
+                <option>B+</option>
+                <option>B-</option>
+                <option>AB+</option>
+                <option>AB-</option>
+              </select>
+            </div>
+
+            <div class="mb-3">
+              <label for="id_unit" class="form-label">Unit (in ml)</label>
+              {% render_field donation_form.unit|attr:'required:true' class="form-control" id="id_unit" %}
+            </div>
+
+            <div class="mb-3">
+              <label for="id_disease" class="form-label">Disease (if any)</label>
+              {% render_field donation_form.disease|attr:'required:true' class="form-control" id="id_disease" %}
+            </div>
+
+            <div class="mb-4">
+              <label for="id_age" class="form-label">Age</label>
+              {% render_field donation_form.age|attr:'required:true' class="form-control" id="id_age" %}
+            </div>
+
+            <div class="text-end">
+              <button type="submit" class="btn btn-danger">Donate</button>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+{% endblock content %}

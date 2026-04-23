@@ -1,0 +1,62 @@
+{% extends 'patient/patientbase.html' %}
+{% block content %}
+{% load widget_tweaks %}
+{% load static %}
+
+<div class="container py-5">
+  <div class="row justify-content-center">
+    <div class="col-lg-8">
+      <div class="card shadow">
+        <div class="card-header bg-info text-white text-center">
+          <h4 class="mb-0">Make Blood Request</h4>
+        </div>
+        <div class="card-body">
+          <form method="POST" autocomplete="off" enctype="multipart/form-data">
+            {% csrf_token %}
+
+            <div class="mb-3">
+              <label class="form-label">Patient Name</label>
+              {% render_field request_form.patient_name|attr:'required:true' class="form-control" %}
+            </div>
+
+            <div class="mb-3">
+              <label class="form-label">Patient Age</label>
+              {% render_field request_form.patient_age|attr:'required:true' class="form-control" %}
+            </div>
+
+            <div class="mb-3">
+              <label class="form-label">Reason</label>
+              {% render_field request_form.reason|attr:'required:true' class="form-control" %}
+            </div>
+
+            <div class="mb-3">
+              <label class="form-label">Blood Group</label>
+              <select name="bloodgroup" class="form-select" required>
+                <option disabled selected>Choose option</option>
+                <option>O+</option>
+                <option>O-</option>
+                <option>A+</option>
+                <option>A-</option>
+                <option>B+</option>
+                <option>B-</option>
+                <option>AB+</option>
+                <option>AB-</option>
+              </select>
+            </div>
+
+            <div class="mb-4">
+              <label class="form-label">Unit (in ml)</label>
+              {% render_field request_form.unit|attr:'required:true' class="form-control" %}
+            </div>
+
+            <div class="d-grid">
+              <button type="submit" class="btn btn-info fw-bold">Request</button>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+{% endblock content %}

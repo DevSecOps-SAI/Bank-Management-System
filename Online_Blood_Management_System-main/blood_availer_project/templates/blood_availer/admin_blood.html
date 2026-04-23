@@ -1,0 +1,121 @@
+{% extends 'blood_availer/adminbase.html' %}
+{% block content %}
+{% load widget_tweaks %}
+
+<style>
+  .unit-card {
+    border-radius: 1rem;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+    transition: transform 0.3s ease-in-out;
+  }
+  .unit-card:hover {
+    transform: scale(1.05);
+  }
+  .unit-value {
+    font-size: 1.5rem;
+    font-weight: 600;
+  }
+</style>
+
+<div class="container py-5">
+  <div class="row g-4">
+    <div class="col-md-3 col-sm-6">
+      <div class="card unit-card text-center bg-danger text-white">
+        <div class="card-body">
+          <h4>A+ <i class="fas fa-tint"></i></h4>
+          <p class="unit-value">{{ A1.unit }} Units</p>
+        </div>
+      </div>
+    </div>
+    <div class="col-md-3 col-sm-6">
+      <div class="card unit-card text-center bg-warning text-dark">
+        <div class="card-body">
+          <h4>B+ <i class="fas fa-tint"></i></h4>
+          <p class="unit-value">{{ B1.unit }} Units</p>
+        </div>
+      </div>
+    </div>
+    <div class="col-md-3 col-sm-6">
+      <div class="card unit-card text-center bg-primary text-white">
+        <div class="card-body">
+          <h4>O+ <i class="fas fa-tint"></i></h4>
+          <p class="unit-value">{{ O1.unit }} Units</p>
+        </div>
+      </div>
+    </div>
+    <div class="col-md-3 col-sm-6">
+      <div class="card unit-card text-center bg-success text-white">
+        <div class="card-body">
+          <h4>AB+ <i class="fas fa-tint"></i></h4>
+          <p class="unit-value">{{ AB1.unit }} Units</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="row g-4 mt-4">
+    <div class="col-md-3 col-sm-6">
+      <div class="card unit-card text-center bg-danger-subtle">
+        <div class="card-body">
+          <h4>A- <i class="fas fa-tint"></i></h4>
+          <p class="unit-value">{{ A2.unit }} Units</p>
+        </div>
+      </div>
+    </div>
+    <div class="col-md-3 col-sm-6">
+      <div class="card unit-card text-center bg-warning-subtle">
+        <div class="card-body">
+          <h4>B- <i class="fas fa-tint"></i></h4>
+          <p class="unit-value">{{ B2.unit }} Units</p>
+        </div>
+      </div>
+    </div>
+    <div class="col-md-3 col-sm-6">
+      <div class="card unit-card text-center bg-primary-subtle">
+        <div class="card-body">
+          <h4>O- <i class="fas fa-tint"></i></h4>
+          <p class="unit-value">{{ O2.unit }} Units</p>
+        </div>
+      </div>
+    </div>
+    <div class="col-md-3 col-sm-6">
+      <div class="card unit-card text-center bg-success-subtle">
+        <div class="card-body">
+          <h4>AB- <i class="fas fa-tint"></i></h4>
+          <p class="unit-value">{{ AB2.unit }} Units</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <hr class="my-5">
+  <div class="text-center">
+    <h3>Update Blood Unit</h3>
+    <form method="POST" class="d-flex flex-column align-items-center gap-3 mt-4">
+      {% csrf_token %}
+      <div class="row g-3 align-items-center">
+        <div class="col-auto">
+          <select name="bloodgroup" class="form-select">
+            <option disabled selected>Choose Blood Group</option>
+            <option>O+</option>
+            <option>O-</option>
+            <option>A+</option>
+            <option>A-</option>
+            <option>B+</option>
+            <option>B-</option>
+            <option>AB+</option>
+            <option>AB-</option>
+          </select>
+        </div>
+        <div class="col-auto">
+          <input type="number" name="unit" class="form-control" placeholder="Units" min="1">
+        </div>
+        <div class="col-auto">
+          <button type="submit" class="btn btn-outline-danger">Update</button>
+        </div>
+      </div>
+    </form>
+  </div>
+</div>
+
+{% endblock content %}

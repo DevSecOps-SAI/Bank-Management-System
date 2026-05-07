@@ -1,0 +1,11 @@
+
+gitignore file# Ignore all files in the logs directory, but not the .gitkeep file
+logs/*
+!logs/.gitkeep
+
+# Ignore the entire tmp directory
+tmp/
+
+# Ignore all files with .swp extension
+*.swp
+
